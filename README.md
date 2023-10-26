@@ -7,7 +7,8 @@ JavaScript風のプログラミング言語を、[Scratch](https://scratch.mit.e
 
 ### サンプル
 
-[こちら](https://github.com/feather16/jscratch/blob/main/jscratch/asm/minecraft.txt)のディレクトリ内のファイルをダウンロードして、Scratch上で、リスト「assembly_code」に読み込んでください。
+1. [こちらのディレクトリ](https://github.com/feather16/jscratch/blob/main/jscratch/asm/minecraft.txt)内のファイルを予めダウンロードしておきます。
+2. [こちらのScratchプロジェクト](https://scratch.mit.edu/projects/872911348/)の中身を開き、リスト「assembly_code」に読み込んでください。
 
 ### プログラムを自作する場合
 
