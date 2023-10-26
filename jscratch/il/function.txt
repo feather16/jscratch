@@ -1,0 +1,200 @@
+goto                    # definition of function test start
+@L_FUNC_SKIP_test
+L_FUNC_test:ret
+L_FUNC_SKIP_test:nop    # definition of function test end
+goto                    # definition of function gcd start
+@L_FUNC_SKIP_gcd
+L_FUNC_gcd:nop
+L_WHILE_0:push          # while (line 6)
+3
+ref
+push
+0
+gt
+not
+gotoif
+@L_ENDWHILE_0
+push                    # do, assign
+4
+push
+2
+ref
+set
+push                    # assign
+5
+push
+3
+ref
+set
+push                    # assign
+2
+push
+5
+ref
+set
+push                    # assign
+3
+push
+4
+ref
+push
+5
+ref
+mod
+set
+goto
+@L_WHILE_0              # end while
+L_ENDWHILE_0:push
+2
+ref
+swap
+ret
+L_FUNC_SKIP_gcd:nop     # definition of function gcd end
+goto                    # definition of function join3 start
+@L_FUNC_SKIP_join3
+L_FUNC_join3:push       # call build-in func join, call build-in func join
+6
+ref
+push
+7
+ref
+join
+push
+8
+ref
+join
+swap
+ret
+L_FUNC_SKIP_join3:nop   # definition of function join3 end
+push                    # assign
+9
+push
+0
+add
+push                    # call user-defined func gcd
+5040
+push
+312
+push
+2
+push
+2
+setarray
+push
+@L_FUNC_RET_gcd_1
+goto
+@L_FUNC_gcd
+L_FUNC_RET_gcd_1:nop    # user-defined func gcd return
+set
+push                    # assign
+9
+push
+1
+add
+push                    # call user-defined func gcd
+18
+push
+3
+push
+2
+push
+2
+setarray
+push
+@L_FUNC_RET_gcd_2
+goto
+@L_FUNC_gcd
+L_FUNC_RET_gcd_2:nop    # user-defined func gcd return
+set
+push                    # assign
+9
+push
+2
+add
+push                    # call user-defined func gcd
+100
+push
+35
+push
+2
+push
+2
+setarray
+push
+@L_FUNC_RET_gcd_3
+goto
+@L_FUNC_gcd
+L_FUNC_RET_gcd_3:nop    # user-defined func gcd return
+set
+push                    # assign
+9
+push
+3
+add
+push                    # call user-defined func join3
+Hello
+push
+World
+push
+!
+push
+6
+push
+3
+setarray
+push
+@L_FUNC_RET_join3_4
+goto
+@L_FUNC_join3
+L_FUNC_RET_join3_4:nop  # user-defined func join3 return
+set
+push                    # assign
+13
+push
+0
+add
+push                    # call build-in func random
+3
+push
+5
+random
+set
+push                    # assign
+13
+push
+1
+add
+push                    # call build-in func join
+3
+push
+5
+join
+set
+push                    # assign
+13
+push
+2
+add
+push                    # call build-in func lengthOf
+3
+lengthOf
+set
+push                    # assign
+13
+push
+3
+add
+push                    # call build-in func sqrt
+3
+sqrt
+set
+push                    # assign
+13
+push
+4
+add
+push                    # call build-in func exp10
+5
+exp10
+set
+nop

@@ -1,0 +1,23 @@
+var primes[100];
+
+function isPrime(n){
+    var result = 1;
+    var i = 2;
+    while(i <= n / 2){
+        if(n % i == 0){
+            result = 0;
+        }
+        i += 1;
+    }
+    return result;
+}
+
+var count = 0;
+var n = 2;
+while(n <= 100){
+    if(isPrime(n)){
+        primes[count] = n;
+        count += 1;
+    }
+    n += 1;
+}

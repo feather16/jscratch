@@ -1,0 +1,76 @@
+constexpr SCREEN_X_MIN = -240;
+constexpr SCREEN_X_MAX = 240;
+constexpr SCREEN_Y_MIN = -180;
+constexpr SCREEN_Y_MAX = 180;
+constexpr BLOCK_SIZE = 32;
+constexpr Y_OFFSET = -32; // = (-1) * BLOCK_SIZE
+constexpr PLAYER_WALK_SPEED = 8; // = BLOCK_SIZE / 4;
+constexpr PLAYER_BLOCK_TARGET_RANGE = 3;
+
+// マインクラフトの定数・変数
+constexpr SIZE_X = 12, SIZE_Y = 3, MIN_X = -5, MAX_X = 6, MIN_Y = 0, MAX_Y = 2, OBJECT_STRUCT_SIZE = 1, OBJECT_STRUCT_NAME = 0;
+const INIT_WORLD_INFO[] = [
+    "岩盤ブロック", "岩盤ブロック", "岩盤ブロック", "岩盤ブロック", "岩盤ブロック", "岩盤ブロック", "岩盤ブロック", "岩盤ブロック", "岩盤ブロック", "岩盤ブロック", "岩盤ブロック", "岩盤ブロック",
+    "草ブロック", "草ブロック", "草ブロック", "草ブロック", "草ブロック", "草ブロック", "土ブロック", "土ブロック", "土ブロック", "草ブロック", "草ブロック", "草ブロック",
+    "空", "空", "空", "空", "空", "空", "草ブロック", "草ブロック", "草ブロック", "空", "空", "空",
+];
+var world[36];
+// その他変数
+var playerX = 0, playerY = 0, playerVy = 0;
+
+function getWorldIndex(x, y, offset){
+    return ((y - MIN_Y) * SIZE_X + (x - MIN_X)) * OBJECT_STRUCT_SIZE + offset;
+}
+function setWorld(x, y, value, offset){
+    if(MIN_X <= x & x <= MAX_X & MIN_Y <= y & y <= MAX_Y){
+        world[getWorldIndex(x, y, offset)] = value;
+    }
+}
+function getWorld(x, y, offset){
+    var ret = 0;
+    if(MIN_X <= x & x <= MAX_X & MIN_Y <= y & y <= MAX_Y){
+        ret = world[getWorldIndex(x, y, offset)];
+    }
+    return ret;
+}
+function init(){
+    var i = 0, j;
+    while(i < SIZE_Y){
+        j = 0;
+        while(j < SIZE_X){
+            setWorld(j + MIN_X, i + MIN_Y, INIT_WORLD_INFO[i * SIZE_X + j], OBJECT_STRUCT_NAME);
+            j += 1;
+        }
+        i += 1;
+    }
+}
+
+function mainDraw(){
+    var i = MIN_Y, j;
+    while(i <= MAX_Y){
+        j = MIN_X;
+        const drawY = i * BLOCK_SIZE + Y_OFFSET - playerY;
+        while(j <= MAX_X){
+            const drawX = j * BLOCK_SIZE - playerX;
+            const objectName = getWorld(j, i, OBJECT_STRUCT_NAME);
+            draw(drawX, drawY, objectName, 1);
+            j += 1;
+        }
+        i += 1;
+    }
+}
+
+init();
+var frame = 0;
+var time[5];
+while(1){
+    resetTimer();
+    eraseAll();
+    mainDraw();
+    time[frame % 5] = getTimer();
+    say(join((time[0] + time[1] + time[2] + time[3] + time[4]) / 5 * 1000, ' ミリ秒'));
+    frame += 1;
+    if(keyPressed('q')){    
+        exit();
+    }
+}

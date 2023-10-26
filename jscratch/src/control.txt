@@ -1,0 +1,26 @@
+var x = 5;
+var y = "false";
+var a, b;
+var count;
+var ans[6];
+ans[0] = 100;
+
+if(x){
+    a = "yes";
+    a = "yes!";
+}
+else{
+    a = "No";
+}
+if(y){
+    b = "yes";
+}
+else{
+    b = "No";
+}
+
+while(x > 0){
+    ans[x] = x * x;
+    x = x - 1;
+    count = count + 1;
+}

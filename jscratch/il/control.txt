@@ -1,0 +1,104 @@
+push              # var x (@1)
+1
+push
+5
+set
+push              # var y (@2)
+2
+push
+false
+set
+push              # assign
+6
+push
+0
+add
+push
+100
+set
+push              # if (line 8)
+1
+ref
+not
+gotoif
+@L_ENDIF_0
+push              # then, assign
+3
+push
+yes
+set
+push              # assign
+3
+push
+yes!
+set
+goto
+@L_ENDELSE_0
+L_ENDIF_0:push    # else, assign
+3
+push
+No
+set               # end if
+L_ENDELSE_0:push  # if (line 15)
+2
+ref
+not
+gotoif
+@L_ENDIF_1
+push              # then, assign
+4
+push
+yes
+set
+goto
+@L_ENDELSE_1
+L_ENDIF_1:push    # else, assign
+4
+push
+No
+set               # end if
+L_ENDELSE_1:nop
+L_WHILE_2:push    # while (line 22)
+1
+ref
+push
+0
+gt
+not
+gotoif
+@L_ENDWHILE_2
+push              # do, assign
+6
+push
+1
+ref
+add
+push
+1
+ref
+push
+1
+ref
+mul
+set
+push              # assign
+1
+push
+1
+ref
+push
+1
+sub
+set
+push              # assign
+5
+push
+5
+ref
+push
+1
+add
+set
+goto
+@L_WHILE_2        # end while
+L_ENDWHILE_2:nop

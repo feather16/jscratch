@@ -1,0 +1,558 @@
+push                            # start array init INIT_WORLD_INFO[0 .. 35], array init INIT_WORLD_INFO[0]
+岩盤ブロック
+push                            # array init INIT_WORLD_INFO[1]
+岩盤ブロック
+push                            # array init INIT_WORLD_INFO[2]
+岩盤ブロック
+push                            # array init INIT_WORLD_INFO[3]
+岩盤ブロック
+push                            # array init INIT_WORLD_INFO[4]
+岩盤ブロック
+push                            # array init INIT_WORLD_INFO[5]
+岩盤ブロック
+push                            # array init INIT_WORLD_INFO[6]
+岩盤ブロック
+push                            # array init INIT_WORLD_INFO[7]
+岩盤ブロック
+push                            # array init INIT_WORLD_INFO[8]
+岩盤ブロック
+push                            # array init INIT_WORLD_INFO[9]
+岩盤ブロック
+push                            # array init INIT_WORLD_INFO[10]
+岩盤ブロック
+push                            # array init INIT_WORLD_INFO[11]
+岩盤ブロック
+push                            # array init INIT_WORLD_INFO[12]
+草ブロック
+push                            # array init INIT_WORLD_INFO[13]
+草ブロック
+push                            # array init INIT_WORLD_INFO[14]
+草ブロック
+push                            # array init INIT_WORLD_INFO[15]
+草ブロック
+push                            # array init INIT_WORLD_INFO[16]
+草ブロック
+push                            # array init INIT_WORLD_INFO[17]
+草ブロック
+push                            # array init INIT_WORLD_INFO[18]
+土ブロック
+push                            # array init INIT_WORLD_INFO[19]
+土ブロック
+push                            # array init INIT_WORLD_INFO[20]
+土ブロック
+push                            # array init INIT_WORLD_INFO[21]
+草ブロック
+push                            # array init INIT_WORLD_INFO[22]
+草ブロック
+push                            # array init INIT_WORLD_INFO[23]
+草ブロック
+push                            # array init INIT_WORLD_INFO[24]
+空
+push                            # array init INIT_WORLD_INFO[25]
+空
+push                            # array init INIT_WORLD_INFO[26]
+空
+push                            # array init INIT_WORLD_INFO[27]
+空
+push                            # array init INIT_WORLD_INFO[28]
+空
+push                            # array init INIT_WORLD_INFO[29]
+空
+push                            # array init INIT_WORLD_INFO[30]
+草ブロック
+push                            # array init INIT_WORLD_INFO[31]
+草ブロック
+push                            # array init INIT_WORLD_INFO[32]
+草ブロック
+push                            # array init INIT_WORLD_INFO[33]
+空
+push                            # array init INIT_WORLD_INFO[34]
+空
+push                            # array init INIT_WORLD_INFO[35]
+空
+push
+1
+push
+36
+setarray                        # end array init INIT_WORLD_INFO[0 .. 35]
+push                            # var playerX (@73)
+73
+push
+0
+set
+push                            # var playerY (@74)
+74
+push
+0
+set
+push                            # var playerVy (@75)
+75
+push
+0
+set
+goto                            # definition of function getWorldIndex start
+@L_FUNC_SKIP_getWorldIndex
+L_FUNC_getWorldIndex:push
+77
+ref
+push
+0
+sub
+push
+12
+mul
+push
+76
+ref
+push
+-5
+sub
+add
+push
+1
+mul
+push
+78
+ref
+add
+swap
+ret
+L_FUNC_SKIP_getWorldIndex:nop   # definition of function getWorldIndex end
+goto                            # definition of function setWorld start
+@L_FUNC_SKIP_setWorld
+L_FUNC_setWorld:push            # if (line 25)
+-5
+push
+79
+ref
+le
+push
+79
+ref
+push
+6
+le
+and
+push
+0
+push
+80
+ref
+le
+and
+push
+80
+ref
+push
+2
+le
+and
+not
+gotoif
+@L_ENDIF_0
+push                            # then, assign
+37
+push                            # call user-defined func getWorldIndex
+79
+ref
+push
+80
+ref
+push
+82
+ref
+push
+76
+push
+3
+setarray
+push
+@L_FUNC_RET_getWorldIndex_1
+goto
+@L_FUNC_getWorldIndex
+L_FUNC_RET_getWorldIndex_1:nop  # user-defined func getWorldIndex return
+add
+push
+81
+ref
+set                             # end if
+L_ENDIF_0:ret
+L_FUNC_SKIP_setWorld:nop        # definition of function setWorld end
+goto                            # definition of function getWorld start
+@L_FUNC_SKIP_getWorld
+L_FUNC_getWorld:push            # var __getWorld__ret (@86)
+86
+push
+0
+set
+push                            # if (line 31)
+-5
+push
+83
+ref
+le
+push
+83
+ref
+push
+6
+le
+and
+push
+0
+push
+84
+ref
+le
+and
+push
+84
+ref
+push
+2
+le
+and
+not
+gotoif
+@L_ENDIF_2
+push                            # then, assign
+86
+push
+37
+push                            # call user-defined func getWorldIndex
+83
+ref
+push
+84
+ref
+push
+85
+ref
+push
+76
+push
+3
+setarray
+push
+@L_FUNC_RET_getWorldIndex_3
+goto
+@L_FUNC_getWorldIndex
+L_FUNC_RET_getWorldIndex_3:nop  # user-defined func getWorldIndex return
+add
+ref
+set                             # end if
+L_ENDIF_2:push
+86
+ref
+swap
+ret
+L_FUNC_SKIP_getWorld:nop        # definition of function getWorld end
+goto                            # definition of function init start
+@L_FUNC_SKIP_init
+L_FUNC_init:push                # var __init__i (@87)
+87
+push
+0
+set
+L_WHILE_4:push                  # while (line 38)
+87
+ref
+push
+3
+lt
+not
+gotoif
+@L_ENDWHILE_4
+push                            # do, assign
+88
+push
+0
+set
+L_WHILE_5:push                  # while (line 40)
+88
+ref
+push
+12
+lt
+not
+gotoif
+@L_ENDWHILE_5
+push                            # do, call user-defined proc setWorld
+88
+ref
+push
+-5
+add
+push
+87
+ref
+push
+0
+add
+push
+1
+push
+87
+ref
+push
+12
+mul
+push
+88
+ref
+add
+add
+ref
+push
+0
+push
+79
+push
+4
+setarray
+push
+@L_FUNC_RET_setWorld_6
+goto
+@L_FUNC_setWorld
+L_FUNC_RET_setWorld_6:nop       # user-defined proc setWorld return
+push                            # compound assign (+=)
+88
+copy
+ref
+push
+1
+add
+set
+goto
+@L_WHILE_5                      # end while
+L_ENDWHILE_5:push               # compound assign (+=)
+87
+copy
+ref
+push
+1
+add
+set
+goto
+@L_WHILE_4                      # end while
+L_ENDWHILE_4:ret
+L_FUNC_SKIP_init:nop            # definition of function init end
+goto                            # definition of function mainDraw start
+@L_FUNC_SKIP_mainDraw
+L_FUNC_mainDraw:push            # var __mainDraw__i (@89)
+89
+push
+0
+set
+L_WHILE_7:push                  # while (line 50)
+89
+ref
+push
+2
+le
+not
+gotoif
+@L_ENDWHILE_7
+push                            # do, assign
+90
+push
+-5
+set
+push                            # const __mainDraw__drawY (@91)
+91
+push
+89
+ref
+push
+32
+mul
+push
+-32
+add
+push
+74
+ref
+sub
+set
+L_WHILE_8:push                  # while (line 53)
+90
+ref
+push
+6
+le
+not
+gotoif
+@L_ENDWHILE_8
+push                            # do, const __mainDraw__drawX (@92)
+92
+push
+90
+ref
+push
+32
+mul
+push
+73
+ref
+sub
+set
+push                            # const __mainDraw__objectName (@93)
+93
+push                            # call user-defined func getWorld
+90
+ref
+push
+89
+ref
+push
+0
+push
+83
+push
+3
+setarray
+push
+@L_FUNC_RET_getWorld_9
+goto
+@L_FUNC_getWorld
+L_FUNC_RET_getWorld_9:nop       # user-defined func getWorld return
+set
+push                            # call build-in proc draw
+92
+ref
+push
+91
+ref
+push
+93
+ref
+push
+1
+draw
+push                            # compound assign (+=)
+90
+copy
+ref
+push
+1
+add
+set
+goto
+@L_WHILE_8                      # end while
+L_ENDWHILE_8:push               # compound assign (+=)
+89
+copy
+ref
+push
+1
+add
+set
+goto
+@L_WHILE_7                      # end while
+L_ENDWHILE_7:ret
+L_FUNC_SKIP_mainDraw:nop        # definition of function mainDraw end
+push                            # call user-defined proc init
+87
+push
+0
+setarray
+push
+@L_FUNC_RET_init_10
+goto
+@L_FUNC_init
+L_FUNC_RET_init_10:nop          # user-defined proc init return
+push                            # var frame (@94)
+94
+push
+0
+set
+L_WHILE_11:push                 # while (line 66)
+1
+not
+gotoif
+@L_ENDWHILE_11
+resetTimer                      # do, call build-in proc resetTimer
+eraseAll                        # call build-in proc eraseAll
+push                            # call user-defined proc mainDraw
+89
+push
+0
+setarray
+push
+@L_FUNC_RET_mainDraw_12
+goto
+@L_FUNC_mainDraw
+L_FUNC_RET_mainDraw_12:nop      # user-defined proc mainDraw return
+push                            # assign
+95
+push
+94
+ref
+push
+5
+mod
+add
+getTimer                        # call build-in func getTimer
+set
+push                            # call build-in proc say, call build-in func join
+95
+push
+0
+add
+ref
+push
+95
+push
+1
+add
+ref
+add
+push
+95
+push
+2
+add
+ref
+add
+push
+95
+push
+3
+add
+ref
+add
+push
+95
+push
+4
+add
+ref
+add
+push
+5
+div
+push
+1000
+mul
+push
+ ミリ秒
+join
+say
+push                            # compound assign (+=)
+94
+copy
+ref
+push
+1
+add
+set
+push                            # if (line 73), call build-in func keyPressed
+q
+keyPressed
+not
+gotoif
+@L_ENDIF_13
+exit                            # then, call build-in proc exit, end if
+L_ENDIF_13:goto
+@L_WHILE_11                     # end while
+L_ENDWHILE_11:nop

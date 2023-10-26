@@ -1,0 +1,39 @@
+push value:
+stack.push(value)
+
+ref:
+stack.push(data[stack.pop()])
+
+set:
+value = stack.pop()
+address = stack.pop()
+data[address] = value
+
+setarray:
+n = stack.pop()
+address = stack.pop()
+for i = n - 1 .. 0:
+    data[address + i] = stack.pop()
+
+{add, sub, mul, div, eq, neq, gt, ge, lt, le, or, and}:
+v2 = stack.pop()
+v1 = stack.pop()
+stack.push(v1 {+, -, *, /, ==, !=, >, >=, <, <=, |, &} v2)
+
+not:
+stack.push(not stack.pop())
+
+goto @label:
+goto label
+
+gotoif @label:
+if stack.pop(): goto label
+
+ret:
+goto stack.pop()
+
+swap:
+v2 = stack.pop()
+v1 = stack.pop()
+stack.push(v2)
+stack.push(v1)

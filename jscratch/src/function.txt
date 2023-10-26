@@ -1,0 +1,30 @@
+function test(arg){
+    return;
+}
+function gcd(a, b){
+    var ta, tb;
+    while(b > 0){
+        ta = a;
+        tb = b;
+        a = tb;
+        b = ta % tb;
+    }
+    return a;
+}
+function join3(a, b, c){
+    return join(join(a, b), c);
+}
+
+var ans[4];
+ans[0] = gcd(5040, 312); // 24
+ans[1] = gcd(18, 3); // 3
+ans[2] = gcd(100, 35); // 5
+ans[3] = join3("Hello", "World", "!");
+
+constexpr x = 3, y = 5;
+var math[5];
+math[0] = random(x, y);
+math[1] = join(x, y);
+math[2] = lengthOf(x);
+math[3] = sqrt(x);
+math[4] = exp10(y);

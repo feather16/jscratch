@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JScratch</title>
+</head>
+<body>
+    <h1>JScratch</h1>
+    <div style="display: flex;">
+        <textarea id="input" rows="10" cols="50" placeholder="ここにソースコードを入力"></textarea>
+        <textarea id="output" rows="10" cols="50" placeholder="" readonly></textarea>
+    </div>
+    <br>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="./lib/jquery-linedtextarea/jquery-linedtextarea.js"></script>
+    <link rel="stylesheet" href="./lib/jquery-linedtextarea/jquery-linedtextarea.css" type="text/css">
+    <script type="module">
+        import { compile } from "./dist/compiler.js";
+        $('#input').linedtextarea();
+        $('#output').linedtextarea();
+        $('#convertButton').on('click', () => {
+            const inputText = $('#input').val();
+            /** @type {string} */
+            try{
+                const assemblyCode = compile(inputText).assemblyCode;
+                $('#output').val(assemblyCode);
+                $('#downloadButton').prop('disabled', false);
+            }
+            catch(e){
+                $('#output').val(e.message);
+                $('#downloadButton').prop('disabled', true);
+            }
+        });
+        $('#downloadButton').on('click', async () => {
+            const assemblyCode = $('#output').val(); 
+            const opts = {
+                suggestedName: "assembly.txt",
+                types: [{
+                    description: 'Text file',
+                    accept: {'text/plain': ['.txt']},
+                }],
+            };
+            const handle = await window.showSaveFilePicker(opts);
+            const writable = await handle.createWritable();
+            await writable.write(assemblyCode);
+            await writable.close();
+        });
+    </script>
+    <button id="convertButton">変換</button>
+    <button id="downloadButton" disabled>ダウンロード</button>
+</body>
+</html>

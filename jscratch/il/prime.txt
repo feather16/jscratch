@@ -1,0 +1,123 @@
+goto                      # definition of function isPrime start
+@L_FUNC_SKIP_isPrime
+L_FUNC_isPrime:push       # var __isPrime__result (@102)
+102
+push
+1
+set
+push                      # var __isPrime__i (@103)
+103
+push
+2
+set
+L_WHILE_0:push            # while (line 6)
+103
+ref
+push
+101
+ref
+push
+2
+div
+le
+not
+gotoif
+@L_ENDWHILE_0
+push                      # do, if (line 7)
+101
+ref
+push
+103
+ref
+mod
+push
+0
+eq
+not
+gotoif
+@L_ENDIF_1
+push                      # then, assign
+102
+push
+0
+set                       # end if
+L_ENDIF_1:push            # compound assign (+=)
+103
+copy
+ref
+push
+1
+add
+set
+goto
+@L_WHILE_0                # end while
+L_ENDWHILE_0:push
+102
+ref
+swap
+ret
+L_FUNC_SKIP_isPrime:nop   # definition of function isPrime end
+push                      # var count (@104)
+104
+push
+0
+set
+push                      # var n (@105)
+105
+push
+2
+set
+L_WHILE_2:push            # while (line 17)
+105
+ref
+push
+100
+le
+not
+gotoif
+@L_ENDWHILE_2
+push                      # do, if (line 18), call user-defined func isPrime
+105
+ref
+push
+101
+push
+1
+setarray
+push
+@L_FUNC_RET_isPrime_4
+goto
+@L_FUNC_isPrime
+L_FUNC_RET_isPrime_4:nop  # user-defined func isPrime return
+not
+gotoif
+@L_ENDIF_3
+push                      # then, assign
+1
+push
+104
+ref
+add
+push
+105
+ref
+set
+push                      # compound assign (+=)
+104
+copy
+ref
+push
+1
+add
+set                       # end if
+L_ENDIF_3:push            # compound assign (+=)
+105
+copy
+ref
+push
+1
+add
+set
+goto
+@L_WHILE_2                # end while
+L_ENDWHILE_2:nop
