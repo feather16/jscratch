@@ -1,3 +1,4 @@
+import argparse
 import yaml
 from pathlib import Path
 from typing import Literal
@@ -5,7 +6,11 @@ from typing import Literal
 WORLD_BASE_PATH = Path(__file__).parent / 'world_base.txt'
 INIT_WORLD_INFO_PATH = Path(__file__).parent / 'init_world_info.txt'
 OBJECT_MAP_PATH = Path(__file__).parent / 'object_map.yaml'
-MODE: Literal['list', 'JScratch'] = 'JScratch'
+
+parser = argparse.ArgumentParser()
+parser.add_argument("--mode", choices = ['list', 'JScratch'], default = 'list')
+args = parser.parse_args()
+mode: Literal['list', 'JScratch'] = args.mode
 
 # 地形情報の読み込み
 def load_world_base(world_base_path: str | Path) -> list[list[str]]:
@@ -63,7 +68,7 @@ for j in range(SIZE_Y - 1):
             world_array[j][i] = '土ブロック'
 
 # 出力
-if MODE == 'JScratch':
+if mode == 'JScratch':
     OBJECT_STRUCT_SIZE = 1
     OBJECT_STRUCT = [
         'NAME',
