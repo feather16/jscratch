@@ -8,7 +8,7 @@ INIT_WORLD_INFO_PATH = Path(__file__).parent / 'init_world_info.txt'
 OBJECT_MAP_PATH = Path(__file__).parent / 'object_map.yaml'
 
 parser = argparse.ArgumentParser()
-parser.add_argument("--mode", choices = ['list', 'JScratch'], default = 'list')
+parser.add_argument("--mode", choices = ['list', 'JScratch'], default = 'JScratch')
 args = parser.parse_args()
 mode: Literal['list', 'JScratch'] = args.mode
 
